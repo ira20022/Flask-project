@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h2>DASHBOARD</h2>
+    {% for t in trans %}
+    <div>
+        {{ t.user.username }}-->
+        {{ t.borrower_name }}
+        {{ t.amt }}
+        {{ t.desc }}
+        
+        <a href="/Dashboard/{{ t.id }}">
+            <button>SETTLE TRANSACTION</button>
+        </a>
+        <!-- {{ t.date_created }} -->
+        
+    </div>
+    {% endfor %}
+    <div>
+        <a href="/UserPage/{{ current_user.username }}"><button>ADD NEW TRANSACTION</button></a>
+    </div>
+    <div>
+        <a href="{{ url_for('logout') }}"><button class="app-form-button">Log-Out</button></a>
+    </div>
+</body>
+</html>

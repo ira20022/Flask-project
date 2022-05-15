@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='friends.css') }}">
+    <script src="{{ url_for('static',filename='myscript.js') }}"></script>
+    <title>Friends</title>
+</head>
+<body>
+    
+    <div class="background">
+        <!-- <h3>Welcome {{ name }}!</h3> -->
+        <nav>
+            <div class="navicon">
+              <div></div>
+            </div>
+            <a href="/Dashboard/{{ name }}" class="arc">DASHBOARD</a>
+            <a class="arc" href="{{ url_for('logout') }}">LOGOUT</a>
+          </nav>
+        <div class="container">
+            <!-- <a href="{{ url_for('logout') }}"><button class="btn">Logout</button></a> -->
+            <!-- <div class="content">
+                
+                <h2>SplitBill</h2>
+                <h2>SplitBill</h2>
+            </div> -->
+            <!-- <div class="app-title">SplitBill</div> -->
+            <!-- <button id="Button" onclick="change()">click-me</button> -->
+          <div class="screen">
+            <div class="screen-body">
+              <div class="screen-body-item">
+                <div class="app-form">
+                  {% for friend in userfriends %}
+                    <div class="user-friend">{{ friend.username }}<a href="/Selectfriends/{{amount}}/{{desc }}/{{friend.id}}">
+                      <button  class="add-friend">ADD FRIEND</button>
+                    </a>
+                  </div>
+                  <br><br>
+                  {% endfor %}
+                </div>
+                <div class="buttons">
+                    <a href="/Addfriend/{{ amount }}/{{ desc }}" class="btn effect01"><span>SPLIT</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styleee.css') }}">
+  </head>
+  <body>
+    <div>
+      {% for message in get_flashed_messages() %}
+        <div class="alert-error">{{ message}}</div>
+      {% endfor %}
+    </div>
+    <div class="wrapper">
+      <div class="title">SPLIT IT</div>
+      <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <div class="field">
+          <!-- <input type="text" required>
+          <label>Username</label> -->
+          <!-- for text inside the box -->
+          <!-- {{ form.username.label}}    -->
+          <!-- <input type="text" label="Enter username"> -->
+            <!-- {% if form.username.errors %} -->
+            <!-- <div class="invalid-feedback"> -->
+              <!-- {% for error in form.username.errors   %}
+                  <span>
+                      {{ error }}
+                  </span>
+              {% endfor %} -->
+              <!-- {% for message in get_flashed_messages() %}
+                <p>{{ message }}</p>
+              {% endfor %} -->
+            <!-- </div> -->
+            <!-- {% else %} -->
+              {{ form.username(placeholder='Enter Username')}}
+            <!-- {% endif %} -->
+        </div>
+        <div class="field">
+          <!-- <input type="password" required>
+          <label>Password</label> -->
+          <!-- {{ form.password.label }} -->
+            <!-- {% if form.password.errors %} -->
+            <!-- <div class="invalid-feedback"> -->
+              <!-- {% for error in form.password.errors %}
+                  <span>
+                      {{ error }}
+                  </span>
+              {% endfor %} -->
+            <!-- </div> -->
+            <!-- {% else %} -->
+              {{ form.password(placeholder='Enter Password') }}
+            <!-- {% endif %} -->
+        </div>
+        <!-- <div class="content"> -->
+        
+          <!-- <div class="checkbox">
+           <input type="checkbox" id="remember-me">
+            <label for="remember-me">Remember me</label> -->
+            <!-- {{ form.remember.label }}
+            {{ form.remember }} -->
+          <!-- </div> -->
+
+          <div class="pass-link"><a href="#">Forgot password?</a></div>
+        <div class="field">
+          <!-- <input type="submit" value="Login"> -->
+          {{ form.submit }}
+        </div>
+        <div class="signup-link">Not a member? <a href="{{ url_for('register') }}">Signup now</a></div>
+        <div class="signup-link">or Connect With Social Media</div>
+        <div class="signup-link">      </div>
+        
+        <div class="main_div">
+      
+            <div class="social_icons">
+              <a href="#"><i class="fab fa-facebook-f"></i> <span>Facebook</span></a>
+              <a href="#"><i class="fab fa-twitter"></i><span>Twitter</span></a>
+            </div>
+        </div>
+
+
+      </form>
+      
+
+    </div>
+  </body>
+</html>

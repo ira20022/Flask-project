@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='userpage.css') }}">
+    <title>UserPage</title>
+</head>
+<body>
+    
+    <div class="background">
+        <!-- <h3>Welcome {{ name }}!</h3> -->
+        <nav>
+            <div class="navicon">
+              <div></div>
+            </div>
+            <a href="/Dashboard/{{ name }}" class="arc">DASHBOARD</a>
+            <a class="arc" href="{{ url_for('logout') }}">LOGOUT</a>
+          </nav>
+        <div class="container">
+            <!-- <a href="{{ url_for('logout') }}"><button class="btn">Logout</button></a> -->
+            <div class="content">
+                
+                <h2>SplitBill</h2>
+                <h2>SplitBill</h2>
+            </div>
+            <!-- <div class="app-title">SplitBill</div> -->
+          <div class="screen">
+            <div class="screen-body">
+              <div class="screen-body-item">
+                <div class="app-form">
+                    <p>Hi {{ name }},</p>
+                      <form method="POST">
+                        {{ form.hidden_tag() }}
+                        <div class="app-form-group">
+                        {{ form.amount(class="app-form-control", placeholder="ENTER THE AMOUNT") }}
+                        </div>
+                        <div class="app-form-group">
+                        {{ form.desc(class="app-form-control" ,placeholder="ENTER THE ITEM NAME") }}
+                        </div>
+                      {{ form.submit(class="app-form-button") }}
+                    </div>
+                      </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+</body>
+</html>

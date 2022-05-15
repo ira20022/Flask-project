@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add-Friends</title>
+    <script src="{{ url_for('static',filename='myscript.js') }}"></script>
+</head>
+<body>
+    <h1>HI {{ name }}</h1>
+    <p>
+        The amount is {{ amount }}
+        <br>
+        The item name is {{ desc }}
+        <br>
+        Counter {{ len }}
+    </p>
+    {% for friend in userfriends %}
+    <div>
+        <h3>
+            {{ friend.username }}
+            {{ friend.email }}
+            <a href="/Selectfriends/{{amount}}/{{desc }}/{{friend.id}}">
+                <button onclick="change_txt()" id="btn">ADD FRIEND</button>
+            </a>
+        </h3>
+    </div>
+    {% endfor %}
+    <a href="/Addfriend/{{ amount }}/{{ desc }}"><button>Done</button></a>
+    <div>
+        <a href="{{ url_for('logout') }}"><button class="app-form-button">Log-Out</button></a>
+    </div>
+</body>
+</html>
